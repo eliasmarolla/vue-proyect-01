@@ -9,12 +9,12 @@
 </head>
 <body class="container">
     <section id="app" class="container">
-        <div class="row">
+        <div class="row presentacion">
 
             <div v-if="ingreso" class="col text-center">
                 <form  @submit.prevent>
                     <div>
-                        <h2>Bienvenido Ingrese su nombre</h2>
+                        <h1>Bienvenido Ingrese su nombre</h1>
                         <input type="text"  @keyup.enter="iniciar()">
                     </div>
                 </form>

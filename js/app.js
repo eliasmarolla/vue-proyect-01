@@ -4,6 +4,7 @@ const app = Vue.createApp({
         ingreso : true,
         ingresado : false,
         nombre : "",
+       
         
     }
   },
@@ -19,11 +20,14 @@ const app = Vue.createApp({
 app.component('list-form',{
     data(){
         return{
+            tituloSeccion:"Carguemos datos",
+            introduccion1: "A continuacion te invitamos a que comiences a cargar los alimentos que tengas o a los que puedas acceder para armar tus platos",
+            introduccion2: "Tambien necesitamos que elijas si este alimento es principal o acompañamiento",
             comida:null,
             tipo:null,
             opciones:[
-                {texto:"principal", value:'A'},
-                {texto:"acompañamiento", value:'B'}
+                {opcion:"principal"},
+                {opcion:"acompañamiento"}
                  ],
             comidas:[]
         }
@@ -40,6 +44,9 @@ app.component('list-form',{
         
     },
     template:`
+    <h2>{{tituloSeccion}}</h2>
+    <p>{{introduccion1}}</p>
+    <p>{{introduccion2}}</p>
     <form @submit.prevent="agregarComida">
     <div>
         <label>Ingrese el alimento</label>
@@ -48,18 +55,18 @@ app.component('list-form',{
     <div>
         <select v-model="tipo">
             <option disabled value="">Seleccione el tipo de alimento</option>
-            <option v-for="item in opciones" v-bind:value="item.value">{{item.texto}}</option>
+            <option v-for="item in opciones" v-bind:value="item.opcion">{{item.opcion}}</option>
         </select>
      </div>
     
-<button type="submit">Agregar comida</button>
+<button type="submit">Agregar alimento</button>
     <form>
     `
 })
 app.component('armar-plato',{
     data(){
         return{
-
+            alimentos:[]
         }
     },
     template: `
