@@ -39,7 +39,9 @@ app.component('list-form',{
                }
         
     },
+    props:[nombre],
     template:`
+    <div>Bienvenido {</div>
     <form @submit.prevent="agregarComida">
     <div>
         <label>Ingrese el alimento</label>
